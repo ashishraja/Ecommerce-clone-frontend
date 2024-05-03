@@ -1,0 +1,144 @@
+
+.productsHeading {
+    margin: 2vmax auto;
+    width: 15vw;
+    padding: 2vmax;
+    margin-bottom:5vmax;
+    font: 500 2vmax "Roboto";
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+  
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5vmax;
+    justify-content: center;
+    min-height: 30vh;
+    margin-left:3vmax;
+  }
+  
+  .paginationBox {
+    display: flex;
+    justify-content: center;
+    margin: 6vmax;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .page-item {
+    background-color: rgb(255, 255, 255);
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    padding: 1vmax 1.5vmax;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .page-item:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .page-item:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  .page-link {
+    text-decoration: none;
+    font: 300 0.7vmax "Roboto";
+    color: rgb(80, 80, 80);
+    transition: all 0.3s;
+  }
+  
+  .page-item:hover {
+    background-color: rgb(230, 230, 230);
+  }
+  
+  .page-item:hover .page-link {
+    color: rgb(0, 0, 0);
+  }
+  
+  .pageItemActive {
+    background-color: tomato;
+  }
+  
+  .pageLinkActive {
+    color: white;
+  }
+  
+  .filterBox {
+    width: 10vmax;
+    position: absolute;
+    top: 12.3vmax;
+    left: 2vmax;
+    margin-top:3vmax;
+  }
+  
+  .categoryBox {
+    padding: 0%;
+  }
+  
+  
+  .category-link {
+    list-style: none;
+    color: rgba(0, 0, 0, 0.61);
+    font: 400 1vmax "Roboto";
+    margin: 0.4vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin:0.8vmax .4vmax;
+  }
+  .category-link:hover {
+    color: tomato;
+  }
+  
+  .filterBox > fieldset {
+    margin-top:1.38vw;
+    border: 2px solid black;
+  }
+  fieldset{
+    margin-bottom:3.47vw;
+  }
+  fieldset .rating{
+    font:300 1.1vmax "Roboto";
+  }
+  
+  @media screen and (max-width: 1080px) {
+    .filterBox {
+      width: 20vmax;
+      position: static;
+      margin: auto;
+    }
+    .productsHeading {
+      padding-right:4vmax;
+      margin-bottom:3vmax;
+    }
+    .products{
+      margin-right:2vmax;
+    }
+    
+    fieldset{
+      padding:2vw 4vw;
+    }
+    .filterBox > fieldset {
+      margin-top:4vw;
+    }
+    .page-link {
+      font: 300 3vw "Roboto";
+    }
+    .category-link {
+      font: 400 3vw "Roboto";
+    }
+    .filterBox .filters{
+      font-size:4vw !important;
+    }
+    .filterBox .rating{
+      font-size:4vw !important;
+    }
+    .filterBox .category{
+      font-size:4vw !important;
+    }
+    
+  }

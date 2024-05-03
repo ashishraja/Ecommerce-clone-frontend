@@ -1,0 +1,173 @@
+.about-container{
+    height:max-content;
+    padding:6vw;
+    margin:20vw 0 5vw 0;
+    box-shadow: 0 0 5px grey;
+}
+.about-heading{
+    font:600 3vmax "Montserrat";
+    font-weight: bold;
+    text-align:center;
+    margin-bottom: 2vw;
+}
+.founder-stack{
+    display:flex;
+    flex-direction: column;
+    gap:4vw;
+    padding:4vw;
+    margin-bottom: 4vw;
+}
+
+.founder-stack div:first-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.founder-stack img{
+    border-radius: 50%;
+    margin-bottom:2.5vw;
+    height:40vw;
+    width:40vw;
+}
+.founder-stack p{
+    text-align: center;
+    opacity: .7;
+    font: 600 1.6vmax "Montserrat";
+    padding:1vw 0;
+}
+
+.founder-stack-div .founder-heading{
+    text-align: center;
+    font: 600 3vmax "Montserrat";
+    margin-top:4vw;
+}
+
+.founder-stack-div p{
+    text-align: center;
+    font: 600 2vmax "Montserrat";
+    padding:3vw 12vw;
+}
+
+.video-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:10vw;
+}
+
+.video-div video{
+    width:63vw;
+}
+
+.tc-div{
+    margin:2vw 0 5vw 0;
+}
+
+.tc-div .tc-heading{
+    text-align: center;
+    font:600 3vmax "Roboto";
+    text-align: center;
+}
+.tc-div div{
+    overflow-y: scroll;
+    padding:2vw 20vw;
+    height:62vw;
+    text-align: center;
+    margin: 3vw 0;
+}
+.tc-div div p{
+    font: 600 1.5vmax "Montserrat";
+} 
+.payment-fill-div{
+    display: flex;
+    justify-content: center;
+}
+.payment-fill{
+    font:600 1.3vmax "Roboto";
+    text-align: center;
+    padding-left:1vw;
+    padding-top:.4vw;
+    text-transform: uppercase;
+}
+
+
+@media screen and (min-width:1080px){
+    .about-container{
+        height:max-content;
+        padding:6vw;
+        margin:10vw 12vw 5vw 12vw;
+        box-shadow: 0 0 5px grey;
+    }
+    .about-heading{
+        text-align:left;
+        margin-bottom: 1vw;
+    }
+    .founder-stack{
+        display: flex;
+        flex-direction: row;
+        margin:0;
+    }
+
+    .founder-stack img{
+        height:17vw;
+        width:17vw;
+        margin-bottom:0;
+    }
+    .founder-stack p{
+        text-align: center;
+        opacity: .7;
+        padding:1vw 0;
+        font:600 1.3vmax "Montserrat";
+    }
+
+    .founder-stack-div .founder-heading{
+        text-align: left;
+        font: 600 2.2vmax "Montserrat";
+        margin-top:2.5vw;
+    }
+
+    .founder-stack-div p{
+        text-align: left;
+        font: 600 1.2vmax "Montserrat";
+    }
+
+    .video-div{
+        margin:0;
+    }
+
+    .video-div video{
+        width:63vw;
+    }
+
+    .tc-div{
+        margin:2vw 0;
+    }
+
+    .tc-div .tc-heading{
+        text-align: left;
+        font:600 1.6vmax "Montserrat";
+    }
+    .tc-div div{
+        overflow-y: scroll;
+        text-align: left;
+        margin: 0;
+        padding:2vw;
+        height:20vw;
+    }
+    .tc-div div p{
+        font: 600 1.1vmax "Montserrat";
+    }  
+    .payment-fill{
+        font: 600 1.1vmax "Roboto";
+        text-align: left;
+        padding:0vw;
+        padding-left:.4vw;
+        margin-top:-.15vw;
+    }
+    .payment-fill-div{
+        display: flex;
+        justify-content: flex-start;
+        margin:0;
+    }
+} 

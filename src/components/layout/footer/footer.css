@@ -1,0 +1,190 @@
+footer{
+    background-color:rgba(35,35,35);
+    padding-bottom:1vmax;
+}
+#footer{
+    display:flex-start;
+    flex-direction: column;
+}
+.left-footer img{
+        width:40vw;
+        height:40vw;
+}
+.middle-footer div{
+    display:flex;
+    flex-direction:row;
+    padding:1.2vw 6vw;
+}
+.icon1{
+    font-size: 2.5vw;
+}
+.middle-footer div span{
+    padding-left:2vw;
+    font-size:2.4vw;
+}
+.middle-footer{
+    padding:1vmax 3vmax;
+    color:white;
+}
+.middle-footer h1{
+    padding-bottom:2vw;
+    font-size:3vw;
+}
+.right-footer span{
+    padding:1.2vw 6vw;
+    font-size:2.5vw;
+    display:block;
+}
+.right-footer{
+    padding:1vmax 3vmax;
+    color:white;
+}
+.right-footer h1{
+    padding-bottom:2vw;
+    font-size:3vw;
+}
+.most-right-footer p{
+    padding:1.2vw 0 1.2vw 6vw;
+    font-size:2.5vw;
+}
+.most-right-footer{
+    padding:1vmax 3vmax;
+    color:white;
+}
+.most-right-footer h1{
+    padding-bottom:2vw;
+    font-size:3vw;
+}
+.icons{
+    color:white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding:2vmax 0vmax 3vmax 0;
+}
+.icons span{
+    border:1px solid white;
+    border-radius: 100%;
+    width:3vw;
+    height:3vw;
+    padding:2vmax 2vmax;
+    margin:0 2vw;
+}
+.icon{
+    font-size:4vw;
+}
+.follow-us p{
+    color:white;
+    text-align: center;
+    font-size:2.5vw;
+    margin-bottom:10px;
+}
+@media screen and (min-width:1080px){
+    footer{
+        background-color:rgba(35,35,35);
+        padding-bottom:1vmax;
+    }
+    .icon1{
+        font-size: 1.2vw;
+    }
+    .icon{
+        font-size: 1.5vw;
+    }
+    #footer{
+        font-family:"Montserrat";
+        margin-top:10vmax;
+        padding:2vmax;
+        padding-right:5vmax;
+        background-color:rgba(35,35,35);
+        color:white;
+        display:flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content:center;
+    }
+    #footer img{
+        height:21vw;
+        width:21vw;
+    }
+    
+    .middle-footer{
+        text-align:left;
+        width:40vw;
+    }
+    .middle-footer div{
+        padding:1vw 0vw;
+    }
+    .middle-footer div span{
+        padding:0vw 1vw;
+        margin-top:-.2vw;
+        font-size:1.1vw;
+    }
+    .middle-footer .location{
+        margin-top:0px;
+    }
+    .middle-footer h1{
+        font-size:1.8vw;
+        padding-bottom:60px;
+    }
+    .middle-footer span{
+        padding-right:1vmax;
+    }
+    .right-footer{
+        padding-left:3vmax;
+        width:40vw;
+        /* margin-left:-2vw; */
+    }
+    .right-footer h1{
+        font-size:1.8vw;
+        padding-bottom:60px;
+    }
+    .right-footer span{
+        /* padding-bottom:2.1vw;    */
+        padding:1vw 0;
+        font-size:1.1vw;
+    }
+    .most-right-footer{
+        padding-left:3vmax;
+        width:40vw;
+        margin-top:-3.5vw;
+        margin-left:-7vw;
+    }
+    .most-right-footer h1{
+        font-size:1.8vw;
+        padding-bottom:60px;
+        /* margin-bottom:4vw; */
+    }
+    .most-right-footer p{
+        padding:1vw 0;   
+        font-size:1.1vw;
+    }
+    
+    .bar{
+        width:88vw;
+        margin-left:4vmax;
+        border-radius:10px;
+        border:2px solid white;
+    }
+    .follow-us{
+        color:white;   
+    }
+    .insta, .phone, .email{
+        margin-top:px;
+    }
+    .icons{
+        padding:0;
+    }
+    .icons span{
+        height:1.2vw;
+        width:1vw;
+        margin:3vw 1vw;
+        cursor:pointer;
+    }
+
+    .follow-us p{
+        text-align:center;
+        font:300 .9vw "Roboto";
+    }
+}
+

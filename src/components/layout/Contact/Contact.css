@@ -1,0 +1,133 @@
+:root{
+    --chakra-colors-chakra-body-bg: var(--chakra-colors-gray-800);
+}
+.contact-section{
+    margin:auto 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-section .container{
+    margin:35vw 5vw 20vw 5vw;
+    padding:8vw 7vw 7vw 7vw;
+    border:1px solid;
+    height:max-content;
+    width:max-content;
+    border-radius: 20px;
+    box-shadow:0px 0px .5vw;
+}
+.contact-section .heading{
+    font:600 2.5vmax "Roboto";
+    text-align: center;
+    margin:2vw 0;
+}
+.contact-section .contact-btn{
+    width:100%;
+    background-color: tomato;
+    font:600 2vmax "Roboto";
+    padding:2vw 2vw;
+    color:white;
+    border-radius:10px;
+    border:1px solid grey
+}
+.contact-section .label{
+    margin-top:10px;
+    font:600 2vmax "Roboto";
+    font-weight: bold;
+}
+
+.contact-section .contact-input{
+    margin:3vw 0;
+    padding:2vw 2vw;
+    width:60vw;
+    border:1px solid grey;
+    border-radius: 5px;
+}
+
+.contact-section .contact-input::placeholder{
+    font:600 1.5vmax "Roboto";
+}
+
+/* @media screen and (min-width:500px){
+    .contact .heading{
+        font-size:5vw;
+        margin:5vw 0;
+    }
+    .contact-input{
+        margin:1vw 0px;
+        padding-top:5vw;
+        padding-bottom:4vw;
+    }
+    .contact-input::placeholder{
+        font-size:3vw;
+    }
+    .contact-btn{
+        padding:4vw;
+    }
+    .contact-btn span{
+        font-size:4vw;
+    }
+} 
+
+@media screen and (min-width:769px){
+    .contact .container{
+        height:60vh;
+        width:75vw;
+    }
+} 
+
+@media screen and (min-width:1024px){
+    .contact .container{
+        margin:15vw 0;
+    }
+    .contact .heading{
+        margin:0 0 1vw 0;
+    }
+    .contact .container{
+        height:85vh;
+        width:75vw;
+    }
+    .contact-btn span{
+        font-size:3.5vw;
+    }
+} */
+
+@media screen and (min-width:1240px){
+    .contact-section {
+        margin:2.5vw 7vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-section .container{
+        height:max-content;
+        width:max-content;
+        margin:4vw 0;
+        padding:3vw;
+    }
+    .contact-section .heading{
+        font:600 2vmax "Roboto";
+        margin-bottom:2vw;
+    }
+    .contact-section .label{
+        font:600 1.1vmax "Roboto";
+        margin:0;
+    }
+    .contact-section .contact-input{
+        margin:1vw 0;
+        padding:1vw;
+        width:20vw;
+        border:1px solid grey;
+        border-radius: 10px;
+    }
+    .contact-section .contact-input::placeholder{
+        font:600 1vmax "Roboto";
+    }
+    .contact-section .contact-btn{
+        padding-top:1vw;
+        padding-bottom:1vw;
+    }
+    .contact-section .contact-btn span{
+        font:600 1vmax "Roboto";
+    }
+}

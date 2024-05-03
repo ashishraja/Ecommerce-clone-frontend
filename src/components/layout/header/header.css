@@ -1,0 +1,63 @@
+.speedDial {
+    position: fixed;
+    right: 3vmax;
+    top: 3vmax;
+  }
+  
+  .speedDialIcon {
+    width: 3.88vw;
+    height: 3.88vw;
+    border-radius: 100%;
+  }
+.logoWidth {
+  width: 20vmax;
+}
+
+
+@media screen and (max-width:600px) {
+  .logoWidth {
+    width: 10vmax;
+  }
+}
+
+  @media screen and (max-width:1080px){
+    .nav .nav1 .logoReactNavbar{
+      position: absolute;
+      left:-24%;
+    }
+    .nav .nav2>:first-child{
+      position:absolute;
+      top:46.5%;
+      left:27%;
+    }
+    .nav .nav2>:last-child{
+      position:absolute;
+      top:49.4%;
+      left:20%;
+    }
+    .nav .nav3>:first-child{
+      position:absolute;
+      top:46.5%;
+      left:27%;
+    }
+    .nav .nav3>:last-child{
+      position:absolute;
+      top:49.4%;
+      left:31%;
+    }
+    .speedDial .MuiFab-root{
+      height:40px;
+      width:40px;
+    }
+    .speedDial{
+      position:fixed;
+      right:1.6vmax;
+      top:2vmax;
+    }
+    .speedDialIcon{
+      height:40px;
+      width:40px;
+      border-radius:100%;
+    }
+  }
+  
