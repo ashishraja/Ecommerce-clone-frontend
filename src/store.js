@@ -70,7 +70,7 @@ const store = configureStore({
   reducer,
   initialState,
   // middleware,
-  // devTools:false
+  devTools:false
 });
 
 
