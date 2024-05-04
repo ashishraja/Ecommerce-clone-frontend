@@ -2,7 +2,8 @@
     display: grid;
     place-items: center;
     background-color: rgb(255, 255, 255);
-    margin: 7vmax 2vmax;
+    /* margin: 7vmax 2vmax; */
+    height:64vh;
   }
   
   .paymentForm {

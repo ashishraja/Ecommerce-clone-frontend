@@ -2,15 +2,16 @@ import React from "react";
 import "./Sidebar.css";
 import logo from "./../../assets/images/1.png";
 import { Link } from "react-router-dom";
-import { TreeView, TreeItem } from "@material-ui/lab";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PostAddIcon from "@material-ui/icons/PostAdd";
-import AddIcon from "@material-ui/icons/Add";
-import ImportExportIcon from "@material-ui/icons/ImportExport";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PeopleIcon from "@material-ui/icons/People";
-import RateReviewIcon from "@material-ui/icons/RateReview";
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
+import { TreeItem } from '@mui/x-tree-view';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import AddIcon from "@mui/icons-material/Add";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PeopleIcon from "@mui/icons-material/People";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const Sidebar = () => {
   return (
@@ -24,20 +25,20 @@ const Sidebar = () => {
         </p>
       </Link>
       <Link>
-        <TreeView
+        <SimpleTreeView
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ImportExportIcon />}
         >
-          <TreeItem className="p" nodeId="1" label="Products">
+          <TreeItem itemId="1" className="p" nodeId="1" label="Products">
             <Link to="/admin/products">
-              <TreeItem className="p" nodeId="2" label="All" icon={<PostAddIcon />} />
+              <TreeItem itemId="2"  className="p" nodeId="2" label="All" icon={<PostAddIcon />} />
             </Link>
 
             <Link to="/admin/product">
-              <TreeItem className="p" nodeId="3" label="Create" icon={<AddIcon />} />
+              <TreeItem itemId="3" className="p" nodeId="3" label="Create" icon={<AddIcon />} />
             </Link>
           </TreeItem>
-        </TreeView>
+        </SimpleTreeView>
       </Link>
       <Link to="/admin/orders">
         <p>

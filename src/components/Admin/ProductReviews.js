@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import "./ProductReviews.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -7,21 +7,20 @@ import {
   getAllReviews,
   deleteReviews,
 } from "../../actions/productAction";
-import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
+import { toast } from "react-toastify";
+import { Button } from "@mui/material";
 import MetaData from "../layout/MetaData";
-import DeleteIcon from "@material-ui/icons/Delete";
-import Star from "@material-ui/icons/Star";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Star from "@mui/icons-material/Star";
 import SideBar from "./Sidebar";
 import { DELETE_REVIEW_RESET } from "../../constants/productConstants";
 import { useNavigate } from "react-router-dom";
 import Loader from "../layout/Loading/Loader";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const ProductReviews = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const alert = useAlert();
-
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.review
   );
@@ -31,7 +30,7 @@ const ProductReviews = () => {
   );
 
   const [productId, setProductId] = useState("");
-  const [showReviews, setShowReviews] = useState(false); // To toggle showing reviews
+  const [showReviews, setShowReviews] = useState(false); 
 
   const deleteReviewHandler = (reviewId) => {
     dispatch(deleteReviews(reviewId, productId));
@@ -40,7 +39,7 @@ const ProductReviews = () => {
   const productReviewsSubmitHandler = (e) => {
     e.preventDefault();
     dispatch(getAllReviews(productId));
-    setShowReviews(true); // Set to true when search button is clicked
+    setShowReviews(true); 
   };
 
   useEffect(() => {
@@ -48,21 +47,21 @@ const ProductReviews = () => {
       dispatch(getAllReviews(productId));
     }
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      toast.error(deleteError , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Review Deleted Successfully");
+      toast.success("Review Deleted Successfully" , toastDisplay);
       navigate("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch, alert, error, deleteError, navigate, isDeleted, productId]);
+  }, [dispatch , error, deleteError, navigate, isDeleted, productId]);
 
   const columns = [
     { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },

@@ -5,23 +5,22 @@ import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loading/Loader";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import {useParams} from "react-router-dom";
 
 const OrderDetails = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const {id} = useParams();
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     dispatch(getOrderDetails(id));
-  }, [dispatch, alert, error, id]);
+  }, [dispatch, toast , error, id]);
   return (
     <Fragment>
       {loading ? (

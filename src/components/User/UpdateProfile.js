@@ -1,18 +1,18 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./UpdateProfile.css";
 import Loader from "../layout/Loading/Loader";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import FaceIcon from "@material-ui/icons/Face";
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import FaceIcon from '@mui/icons-material/Face';
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, loadUser } from "../../actions/userAction";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify"
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import {useNavigate} from "react-router-dom";
+import { toastDisplay } from "./LoginSignUp";
 
 const UpdateProfile = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
@@ -28,12 +28,12 @@ const UpdateProfile = () => {
   useEffect(() => {
 
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Profile Updated Successfully");
+      toast.success("Profile Updated Successfully" , toastDisplay);
       dispatch(loadUser());        
       navigate("/");
     }
@@ -41,7 +41,7 @@ const UpdateProfile = () => {
     dispatch({
       type: UPDATE_PROFILE_RESET,
     });
-  }, [dispatch, error, alert, navigate, user, isUpdated]);
+  }, [dispatch, error, toast , navigate, user, isUpdated]);
 
   return (
     <Fragment>

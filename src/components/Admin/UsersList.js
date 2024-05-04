@@ -1,25 +1,25 @@
-import React, { Fragment, useEffect , useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import React, { Fragment, useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
 import "./ProductList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
+import { toast } from "react-toastify";
+import { Button } from "@mui/material";
 import MetaData from "../layout/MetaData";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
 import { DELETE_USER_RESET } from "../../constants/userConstants";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loader from "../layout/Loading/Loader";
+import { toastDisplay } from "../User/LoginSignUp";
 const UsersList = () => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const alert = useAlert();
   const [dataGridReady, setDataGridReady] = useState(false);
-  const { error, users ,loading} = useSelector((state) => state.allUsers);
-  
+  const { error, users, loading } = useSelector((state) => state.allUsers);
+
   const {
     error: deleteError,
     isDeleted,
@@ -32,17 +32,17 @@ const UsersList = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      toast.error(deleteError , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success(message);
+      toast.success(message , toastDisplay);
       navigate("/admin/users");
       dispatch({ type: DELETE_USER_RESET });
     }
@@ -50,7 +50,7 @@ const UsersList = () => {
     setDataGridReady(true);
 
     dispatch(getAllUsers());
-  }, [dispatch, alert, error, deleteError, navigate, isDeleted, message]);
+  }, [dispatch, toast , error, deleteError, navigate, isDeleted, message]);
 
   const columns = [
     { field: "id", headerName: "User ID", minWidth: 200, flex: 1 },
@@ -59,7 +59,7 @@ const UsersList = () => {
       field: "email",
       headerName: "Email",
       minWidth: 250,
-      flex:1,
+      flex: 1,
     },
     {
       field: "name",
@@ -75,9 +75,7 @@ const UsersList = () => {
       minWidth: 150,
       flex: 1,
       cellClassName: (params) => {
-        return params.getValue(params.id, "role") === "admin"
-          ? "greenColor"
-          : "redColor";
+        return params.value === "admin" ? "greenColor" : "redColor";
       },
     },
 
@@ -91,15 +89,11 @@ const UsersList = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Button
-              onClick={() =>
-                deleteUserHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <DeleteIcon />
+            <Button onClick={() => deleteUserHandler(params.row.id)}>
+              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-18px", marginLeft: "20px", color: "tomato" }} />
             </Button>
-            <Link className="editIcon" to={`/admin/user/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+            <Link className="editIcon" to={`/admin/user/${params.row.id}`}>
+              <EditIcon classname="editIcon" style={{ marginTop: "15px", color: "tomato" }} />
             </Link>
           </Fragment>
         );
@@ -126,25 +120,30 @@ const UsersList = () => {
           <Fragment>
             <MetaData title={`ALL USERS - Admin`} />
 
-<div className="dashboard">
-  <SideBar />
-  <div className="productListContainer">
-      <h1 id="productListHeading">ALL USERS</h1>
-      {
-        users && dataGridReady && (
-          <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          disableSelectionOnClick
-          className="productListTable"
-          autoHeight
-        />
-        )
-      }
-  </div>
-</div>
-            </Fragment>
+            <div className="dashboard">
+              <SideBar />
+              <div className="productListContainer">
+                <h1 id="productListHeading">ALL USERS</h1>
+                {
+                  users && dataGridReady && (
+                    <DataGrid
+                      rows={rows}
+                      columns={columns}
+                      initialState={{
+                        pagination: {
+                          paginationModel: {
+                            pageSize: 5,
+                          },
+                        },
+                      }}
+                      pageSizeOptions={[5]}
+                      disableRowSelectionOnClick
+                    />
+                  )
+                }
+              </div>
+            </div>
+          </Fragment>
         )
       }
     </Fragment>

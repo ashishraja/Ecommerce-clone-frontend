@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { loadUser, updateProfilePicture } from "../../actions/userAction";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import { CLEAR_MESSAGE } from "../../constants/userConstants";
+import { toastDisplay } from "./LoginSignUp";
 
 export const fileUploadCss = {
   cursor: "pointer",
@@ -27,12 +28,12 @@ const Profile = () => {
   const {  isUpdated } = useSelector((state) => state.profile);
   const { onClose, isOpen, onOpen } = useDisclosure();
   const navigate = useNavigate();
-  const alert = useAlert();
+
   const changeImageSubmitHandler = async (e, image) => {
     e.preventDefault();
     
     if (!image) {
-      alert.error('No file selected');
+      toast.error('No file selected',toastDisplay);
       return;
     }
 
@@ -51,12 +52,12 @@ const Profile = () => {
     }
 
     if(isUpdated){
-      alert.success(isUpdated.message);
+      toast.success(isUpdated.message , toastDisplay);
       dispatch({type:CLEAR_MESSAGE});
     }
 
 
-  }, [navigate, alert , dispatch, isUpdated , isAuthenticated]);
+  }, [navigate, toast , dispatch, isUpdated , isAuthenticated]);
 
   return (
     <Fragment>

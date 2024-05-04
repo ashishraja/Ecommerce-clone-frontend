@@ -2,19 +2,28 @@ import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loading/Loader";
 import { Link } from "react-router-dom";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import FaceIcon from "@material-ui/icons/Face";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, loadUser, login, register } from "../../actions/userAction";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import Cookies from "js-cookie"
 
+export const toastDisplay = {
+  position: 'bottom-center',
+  autoClose: 3000,
+  hideProgressBar: false,
+  closeOnClick: true, 
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+};
+
 const LoginSignUp = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,12 +50,12 @@ const LoginSignUp = () => {
     const response = await dispatch(login(loginEmail, loginPassword));
     if (response) {
       if (response.type === "LOGIN_FAIL") {
-        alert.error(response.payload);
+        toast.error(response.payload , toastDisplay);
         response.payload = " ";
       }
       if (response.type === "LOGIN_SUCCESS") {
         await dispatch(loadUser());
-        alert.success(response.payload.message);
+        toast.success(response.payload.message, toastDisplay);
         response.payload.message = " ";
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 7);
@@ -56,7 +65,7 @@ const LoginSignUp = () => {
     
   };
 
-  const registerSubmit = (e) => {
+  const registerSubmit = async(e) => {
     e.preventDefault();
 
     const myForm = new FormData();
@@ -65,7 +74,8 @@ const LoginSignUp = () => {
     myForm.append("email", email);
     myForm.append("password", password);
     myForm.append("file", image);
-    dispatch(register(myForm));
+    await dispatch(register(myForm));
+    toast.success("Thank you for registering!",toastDisplay)
   };
 
   const registerDataChange = (e) => {
@@ -87,13 +97,13 @@ const LoginSignUp = () => {
     }
 
     if (message) {
-      alert.success(message);
+      toast.success(message,toastDisplay);
     }
 
     if (isAuthenticated) {
       navigate(redirect);
     }
-  }, [dispatch, message , error, alert, navigate, isAuthenticated, redirect]);
+  }, [dispatch, message , error, navigate, isAuthenticated, redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

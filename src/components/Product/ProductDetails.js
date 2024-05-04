@@ -8,7 +8,7 @@ import {
   newReview,
 } from "../../actions/productAction";
 import ReviewCard from "./ReviewCard";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify"
 import MetaData from "../layout/MetaData";
 import { addItemsToCart } from "../../actions/cartAction";
 import {
@@ -17,15 +17,16 @@ import {
   DialogContent,
   DialogTitle,
   Button,
-} from "@material-ui/core";
-import { Rating } from "@material-ui/lab";
+} from "@mui/material";
+import { Rating } from '@mui/material';
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import Loader from "../layout/Loading/Loader";
 import { useParams } from "react-router-dom";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
+  
   const { id } = useParams();
 
   const { product, loading, error } = useSelector(
@@ -63,7 +64,7 @@ const ProductDetails = () => {
   const addToCartHandler = async() => {
     const response = await dispatch(addItemsToCart(id, quantity));
     console.log(response);
-    alert.success("Item Added To Cart");
+    toast.success("Item Added To Cart" , toastDisplay);
   };
 
   const submitReviewToggle = () => {
@@ -84,22 +85,22 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (reviewError) {
-      alert.error(reviewError);
+      toast.error(reviewRrror, toastDisplay);
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Review Submitted Successfully");
+      toast.success("Review Submitted Successfully", toastDisplay);
       dispatch({ type: NEW_REVIEW_RESET });
     }
 
     dispatch(getProductDetails(id));
-  }, [dispatch, id, error, alert, reviewError, success]);
+  }, [dispatch, id, error, toast , reviewError, success]);
 
   return (
     <Fragment>

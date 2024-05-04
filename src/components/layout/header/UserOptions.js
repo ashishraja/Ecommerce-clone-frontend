@@ -1,14 +1,20 @@
 import React, { Fragment, useState } from "react";
 import "./header.css";
-import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
-import Backdrop from "@material-ui/core/Backdrop";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PersonIcon from "@material-ui/icons/Person";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { SpeedDial, SpeedDialAction } from "@mui/material";
+// import Backdrop from "@material-ui/core/Backdrop";
+import { Backdrop } from '@mui/material';
+// import DashboardIcon from "@material-ui/icons/Dashboard";
+import DashboardIcon from '@mui/icons-material/Dashboard';
+// import PersonIcon from "@material-ui/icons/Person";
+import PersonIcon from "@mui/icons-material/Person";
+// import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+// import ListAltIcon from "@material-ui/icons/ListAlt";
+import ListAltIcon from '@mui/icons-material/ListAlt';
+// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
@@ -18,7 +24,7 @@ const UserOptions = () => {
   let { user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
 
   const options = [
@@ -61,7 +67,7 @@ const UserOptions = () => {
   }
   function logoutUser() {
     dispatch(logout());
-    alert.success("Logout Successfully");
+    // alert.success("Logout Successfully");
     Cookies.remove('userToken');
     navigate("/");
   }

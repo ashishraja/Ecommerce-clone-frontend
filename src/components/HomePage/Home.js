@@ -5,22 +5,22 @@ import "./home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct, clearErrors } from '../../actions/productAction';
 import Loader from '../layout/Loading/Loader';
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import ProductCard from './ProductCard';
 import "./home.css";
+import { toastDisplay } from '../User/LoginSignUp';
 
 const Home = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
     dispatch(getProduct());
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, toast]);
 
 
   return (

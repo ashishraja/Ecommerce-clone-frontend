@@ -1,4 +1,4 @@
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
 
 import {
@@ -64,13 +64,13 @@ let initialState = {
   },
 };
 
-const middleware = [thunk];
+// const middleware = [thunk];
 
 const store = configureStore({
   reducer,
   initialState,
-  middleware,
-  devTools:false
+  // middleware,
+  // devTools:false
 });
 
 
@@ -78,3 +78,8 @@ export default store;
 
 
 export const server = "https://ecommerce-backend-2uu7.onrender.com/api/v1"
+
+
+//   "dependencies": {
+//     "force": "^0.0.3",,
+//     "redux-devtools-extension": "^2.13.9",

@@ -11,10 +11,17 @@
   .MuiStepConnector-completed {
     background-color: tomato;
   }
+  .MuiStepper-root{
+    margin:3vw 0;
+  }
 
   @media screen and (max-width:1080px){
-    .order-steps .MuiStepper-root{
+    .MuiStepper-root{
+      margin:3vw 0;
       margin-right:30px;
+    }
+    .order-steps .MuiTypography-root{
+      font-size:10px;
     }
   }
   

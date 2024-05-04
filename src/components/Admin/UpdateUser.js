@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
+import { toast } from "react-toastify";
+import { Button } from "@mui/material";
 import MetaData from "../layout/MetaData";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import PersonIcon from "@material-ui/icons/Person";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PersonIcon from "@mui/icons-material/Person";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import SideBar from "./Sidebar";
 
 import { UPDATE_USER_RESET } from "../../constants/userConstants";
@@ -16,10 +16,10 @@ import {
 } from "../../actions/userAction";
 import Loader from "../layout/Loading/Loader";
 import {useParams , useNavigate} from "react-router-dom";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const {id} = useParams();
   const navigate = useNavigate();
   const { loading, error, user } = useSelector((state) => state.userDetails);
@@ -47,21 +47,21 @@ const UpdateUser = () => {
       setRole(user.role);
     }
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
+      toast.error(updateError , toastDisplay);
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("User Updated Successfully");
+      toast.success("User Updated Successfully" , toastDisplay);
       navigate("/admin/users");
       dispatch({ type: UPDATE_USER_RESET });
     }
-  }, [dispatch, alert, error, navigate , isUpdated, updateError, user, userId]);
+  }, [dispatch , toast ,  error, navigate , isUpdated, updateError, user, userId]);
 
   const updateUserSubmitHandler = (e) => {
     e.preventDefault();

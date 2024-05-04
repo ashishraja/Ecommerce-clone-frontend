@@ -5,15 +5,15 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loading/Loader";
 import ProductCard from "../HomePage/ProductCard";
 import Pagination from "react-js-pagination";
-import Slider from "@material-ui/core/Slider";
-import { useAlert } from "react-alert";
-import Typography from "@material-ui/core/Typography";
+import { Slider } from '@mui/material';
+import { toast } from "react-toastify";
+import { Typography } from "@mui/material";
 import MetaData from "../layout/MetaData";
 import { useParams } from "react-router-dom";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const  keyword  = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 150000]);
@@ -51,12 +51,12 @@ const Products = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
 
     dispatch(getProduct(keywords, currentPage, price, category, ratings));
-  }, [dispatch, keywords, currentPage, price, category, ratings, alert, error]);
+  }, [dispatch, keywords, currentPage, price, category, ratings, toast , error]);
 
   return (
     <Fragment>

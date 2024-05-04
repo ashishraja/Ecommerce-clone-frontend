@@ -3,20 +3,20 @@ import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
 import { saveShippingInfo } from "../../actions/cartAction";
 import MetaData from "../layout/MetaData";
-import PinDropIcon from "@material-ui/icons/PinDrop";
-import HomeIcon from "@material-ui/icons/Home";
-import LocationCityIcon from "@material-ui/icons/LocationCity";
-import PublicIcon from "@material-ui/icons/Public";
-import PhoneIcon from "@material-ui/icons/Phone";
-import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
+import PinDropIcon from '@mui/icons-material/PinDrop';
+import HomeIcon from '@mui/icons-material/Home';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import PublicIcon from '@mui/icons-material/Public';
+import PhoneIcon from '@mui/icons-material/Phone';
+import TransferWithinAStationIcon from '@mui/icons-material/TransferWithinAStation';
 import { Country, State } from "country-state-city";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import {useNavigate} from "react-router-dom";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const Shipping = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
   const [address, setAddress] = useState("");
@@ -36,20 +36,10 @@ const Shipping = () => {
     e.preventDefault();
 
     if (phoneNo.length < 10 || phoneNo.length > 10) {
-      alert.error("Phone Number should be 10 digits Long");
+      toast.error("Phone Number should be 10 digits Long" , toastDisplay);
       return;
     }
-    // const data = {
-    //  address,
-    //  city,
-    //  pinCode,
-    //  phoneNo,
-    //  state,
-    //  country
-    // };
-
-    // sessionStorage.setItem("ShippingInfo", JSON.stringify(data));
-
+    
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );

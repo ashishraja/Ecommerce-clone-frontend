@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
 import SideBar from "./Sidebar";
 import {
   getOrderDetails,
@@ -10,12 +9,13 @@ import {
 } from "../../actions/orderAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loading/Loader";
-import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import { Button } from "@material-ui/core";
+import { toast } from "react-toastify";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import { Button } from "@mui/material";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./ProcessOrder.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { toastDisplay } from "../User/LoginSignUp";
 
 const ProcessOrder = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
@@ -33,26 +33,24 @@ const ProcessOrder = () => {
   };
 
   const dispatch = useDispatch();
-  const alert = useAlert();
-
   const [status, setStatus] = useState("");
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error , toastDisplay);
       dispatch(clearErrors());
     }
     if (updateError) {
-      alert.error(updateError);
+      toast.error(updateError , toastDisplay);
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("Order Updated Successfully");
+      toast.success("Order Updated Successfully" , toastDisplay);
       dispatch({ type: UPDATE_ORDER_RESET });
     }
 
     dispatch(getOrderDetails(id));
-  }, [dispatch, alert, error, id, isUpdated, updateError]);
+  }, [dispatch, toast , error, id, isUpdated, updateError]);
 
   return (
     <Fragment>
