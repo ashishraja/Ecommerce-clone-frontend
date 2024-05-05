@@ -43,6 +43,7 @@ import NotFound from "./components/layout/NotFound/NotFound";
 import Loader from "./components/layout/Loading/Loader";
 import Footer from "./components/layout/footer/Footer";
 import Cookies from 'js-cookie';
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -73,6 +74,7 @@ function App() {
   return (
     <>
       <Router>
+      <ScrollToTop />
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
         <Routes>

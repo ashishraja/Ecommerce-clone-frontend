@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
         <div className="middle-footer">
           <h1>Contact</h1>
-          <div><MdLocationPin className='icon1' /><span> Nakshatra Galaxia</span></div>
+          <div><MdLocationPin className='icon1' /><span> Surat Gujarat</span></div>
           <div><AiFillPhone className="icon1" /><span>Phone : +91-9408284318</span></div>
           <div><BiLogoGmail className="icon1" /><span>Email : ash@gmail.com</span></div>
           <div><BsInstagram className="icon1" /><span>Instagram : ig_santani</span></div>
