@@ -57,12 +57,12 @@ function App() {
       },
     });
 
-    // const token = Cookies.get('userToken');
-    // if (token) {
+    const token = Cookies.get('userToken');
+    if (token) {
       store.dispatch(loadUser()).then(() => setLoadingUser(false));
-    // } else {
-      // setLoadingUser(false);
-    // }
+    } else {
+      setLoadingUser(false);
+    }
   }, []);
 
   if (loadingUser) {
