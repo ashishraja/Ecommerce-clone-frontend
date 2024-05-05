@@ -9,6 +9,7 @@ import "./Payment.css";
 import { createOrder, clearErrors } from "../../actions/orderAction";
 import { server } from "../../store";
 import image from "./../../assets/images/1.png";
+import PaidIcon from '@mui/icons-material/Paid';
 
 const Payment = () => {
   const orderInfo = useMemo(() => JSON.parse(sessionStorage.getItem("orderInfo")), []);
@@ -109,7 +110,10 @@ const Payment = () => {
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
+
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+          <PaidIcon style={{fontSize:"100px" , color:"rgba(0, 0, 0, 0.623)" , marginBottom:"20px"}}/>
+          <h1 className="payment-heading" style={{display:"flex",flexDirection:"column"}}><span>Unlock exclusive benefits </span> <span>and elevate your experience</span> <span>Pay today and unlock</span><span> a world of exclusive benefits!</span></h1>
           <input
             type="submit"
             value={`Pay - ₹${orderInfo?.totalPrice || 0}`}

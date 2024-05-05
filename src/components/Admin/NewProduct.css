@@ -96,7 +96,7 @@
     color: white;
     font: 300 0.9vmax "Roboto";
     width: 100%;
-    padding: 0.8vmax;
+    padding: 1.3vmax;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 4px;
@@ -145,6 +145,7 @@
   
     #createProductBtn {
       font: 300 1.9vmax "Roboto";
-      padding: 1.8vmax;
+      margin-top:1vmax;
+      padding: 2.2vmax;
     }
   }

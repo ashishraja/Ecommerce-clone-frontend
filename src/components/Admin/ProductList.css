@@ -17,6 +17,9 @@
   text-align: center;
 }
 
+.MuiDataGrid-toolbarContainer .MuiButtonBase-root {
+  color: rgba(0, 0, 0, 0.637);
+}
 
 .productListTable {
   background-color: white;
@@ -52,6 +55,9 @@
 @media screen and (max-width: 1080px) {
   .productListTable div {
     font: 300 4vw "Roboto";
+  }
+  .css-3eek4p-MuiDataGrid-main{
+    overflow:auto;
   }
   #productListHeading {
     font: 400 7.6vw "Roboto";

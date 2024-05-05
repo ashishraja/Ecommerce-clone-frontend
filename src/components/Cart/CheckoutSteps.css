@@ -17,10 +17,11 @@
 
   @media screen and (max-width:1080px){
     .MuiStepper-root{
-      margin:3vw 0;
-      margin-right:30px;
+      padding-top:13vmax;
+      padding-bottom:4vmax;
+      padding-right:15px;
     }
-    .order-steps .MuiTypography-root{
+     .MuiTypography-root{
       font-size:10px;
     }
   }

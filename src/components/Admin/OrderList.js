@@ -85,17 +85,17 @@ const OrderList = () => {
       field: "actions",
       flex: .1,
       headerName: "Actions",
-      minWidth: 100,
+      minWidth: 200,
       type: "number",
       sortable: false,
       renderCell: (params) => {
         return (
           <Fragment>
             <Button onClick={() => deleteOrderHandler(params.row.id)}>
-              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-18px", marginLeft: "20px", color: "tomato" }} />
+              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-16px", marginLeft: "20px", color: "rgba(0, 0, 0, 0.637)" }} />
             </Button>
             <Link className="editIcon" to={`/admin/order/${params.row.id}`}>
-              <EditIcon classname="editIcon" style={{ marginTop: "15px", color: "tomato" }} />
+              <EditIcon classname="editIcon" style={{ marginTop: "13px", color: "rgba(0, 0, 0, 0.637)" }} />
             </Link>
           </Fragment>
         );

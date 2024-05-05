@@ -18,12 +18,13 @@ const MyOrders = () => {
   const { user } = useSelector((state) => state.user);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "id", headerName: "Order ID", minWidth: 150, flex: .5 },
 
     {
       field: "status",
       headerName: "Status",
       flex: 0.3,
+      minWidth: 150,
       cellClassName: (params) => {
         return params.value === "Delivered" ? "greenColor" : "redColor";
       },

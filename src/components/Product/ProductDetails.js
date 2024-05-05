@@ -63,7 +63,6 @@ const ProductDetails = () => {
 
   const addToCartHandler = async() => {
     const response = await dispatch(addItemsToCart(id, quantity));
-    console.log(response);
     toast.success("Item Added To Cart" , toastDisplay);
   };
 

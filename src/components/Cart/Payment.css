@@ -2,12 +2,23 @@
     display: grid;
     place-items: center;
     background-color: rgb(255, 255, 255);
-    /* margin: 7vmax 2vmax; */
-    height:64vh;
+    height:68vh;
+  }
+
+  .paymentForm .payment-heading{
+    text-align: center;
+    color:rgba(0, 0, 0, 0.623);
+    font: 400 1.8vmax "Roboto"; 
+    margin-bottom: 2vmax;
+    padding:0 20vmax;
   }
   
   .paymentForm {
-    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   
   .paymentForm > p {
@@ -18,9 +29,6 @@
     text-align: center;
     width: 20vw;
     margin: auto;
-  }
-  .PageNotFound{
-    display:none;
   }
   
   .paymentForm > div {
@@ -50,9 +58,8 @@
     border: none;
     background-color: tomato;
     color: white;
-    font: 300 0.9vmax "Roboto";
-    width: 100%;
-    padding: 0.8vmax;
+    font: 300 1vmax "Roboto";
+    padding: 1.3vmax 2vmax;
     cursor: pointer;
     transition: all 0.5s;
     outline: none;
@@ -65,6 +72,13 @@
   @media screen and (max-width: 1080px) {
     .paymentForm {
       width: 90%;
+    }
+    .paymentForm .payment-heading{
+      text-align:center;
+      color:rgba(0, 0, 0, 0.623);
+      font: 400 3vmax "Roboto"; 
+      margin-bottom: 2vmax;
+      padding:1vmax 3vmax;
     }
   
     .paymentForm > p {
@@ -86,8 +100,8 @@
     }
   
     .paymentFormBtn {
-      font: 300 4vw "Roboto";
-      padding: 4vw;
+      font: 300 2vmax "Roboto";
+      padding: 2vmax 3vmax;
     }
    
   }

@@ -127,12 +127,19 @@
     .cartPage {
       padding: 0;
       min-height: 60vh;
-      margin-top:9vmax;
+      padding-top:11vmax;
     }
-  
+    .emptyCart{
+      height:100vh;
+      padding:0 10vmax;
+    }
+    .emptyCart a{
+      margin-top:.8vmax;
+    }
+
     .cartHeader {
       width: 100%;
-      font: 300 2vmax "Roboto";
+      font: 300 1.6vmax "Roboto";
       grid-template-columns: 3fr 1fr 1fr;
     }
   

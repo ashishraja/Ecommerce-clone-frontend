@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid , GridToolbar } from "@mui/x-data-grid";
 import "./ProductReviews.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -83,11 +83,6 @@ const ProductReviews = () => {
       type: "number",
       minWidth: 180,
       flex: 0.4,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "rating") >= 3
-          ? "greenColor"
-          : "redColor";
-      },
     },
     {
       field: "actions",
@@ -99,12 +94,8 @@ const ProductReviews = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Button
-              onClick={() =>
-                deleteReviewHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <DeleteIcon />
+             <Button onClick={() => deleteReviewHandler(params.row.id)}>
+              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-16px", marginLeft: "20px", color: "rgba(0, 0, 0, 0.637)" }} />
             </Button>
           </Fragment>
         );
@@ -163,14 +154,22 @@ const ProductReviews = () => {
               </form>
 
               {showReviews && reviews && reviews.length > 0 ? (
-                <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  pageSize={10}
-                  disableSelectionOnClick
-                  className="productListTable"
-                  autoHeight
-                />
+                 <DataGrid
+                 rows={rows}
+                 columns={columns}
+                 initialState={{
+                   pagination: {
+                     paginationModel: {
+                       pageSize: 5,
+                     },
+                   },
+                 }}
+                 pageSizeOptions={[5]}
+                 slots={{
+                   toolbar: GridToolbar,
+                 }}
+                 disableRowSelectionOnClick
+               />
               ) : showReviews ? (
                 <h1 className="productReviewsFormHeading">No Reviews Found</h1>
               ) : null}

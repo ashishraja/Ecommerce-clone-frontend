@@ -16,8 +16,7 @@
 
 .profileContainer>div {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
   max-width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -180,9 +179,20 @@
     flex-direction: column;
   }
 
+  .profileContainer>div {
+    display: flex;
+    padding-top:10vmax;
+    padding-bottom:5vmax;
+    width: 100vw;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   .modelContent{
     max-width:63vw;
-    height:48vw;
+    height:max-content;
     margin:20vw 17vw;
   }
 
@@ -232,8 +242,8 @@
 
   .profileContainer>div:first-child>img {
     margin-top: 3.3vw;
-    width: 30vw;
-    height: 30vw;
+    width: 20vmax;
+    height: 20vmax;
     border-radius: 90%;
     transition: all 0.5s;
   }
@@ -245,8 +255,9 @@
 
 
   .profileContainer>div:first-child>a {
-    font: 400 3vw "Roboto";
-    padding: 2vw;
+    font: 400 1.6vmax "Roboto";
+    padding: 1.5vmax 2.3vmax;
+    width:15vmax;
   }
 
   .profileContainer>div:last-child {
@@ -256,7 +267,7 @@
   }
 
   .profileContainer>div:last-child>div>h4 {
-    font: 400 5vw "Roboto";
+    font: 400 2.2vmax "Roboto";
   }
 
   .profileContainer>div:last-child>div>p {
@@ -272,17 +283,17 @@
 
 
   .profileContainer>div:last-child>div:last-child>a {
-    font: 400 3vw "Roboto";
-    padding: 2vw;
-    margin: 2.5vw 0;
-    width:30vw;
+    font: 400 1.6vmax "Roboto";
+    padding: 1.5vmax 2.5vmax;
+    margin: 1.7vmax 0;
+    width:20vmax;
   }
 
   .profileContainer>div:last-child>div:last-child>button {
-    font: 400 3vw "Roboto";
-    padding: 2vw;
-    width:34vw;
-    margin: 2.5vw;
+    font: 400 1.6vmax "Roboto";
+    padding: 1.5vmax 2.5vmax;
+    width:25vmax;
+    margin-top: 2vmax;
   }
 
 }

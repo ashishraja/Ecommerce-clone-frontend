@@ -69,14 +69,13 @@ const ProductList = () => {
       type: "number",
       sortable: false,
       renderCell: (params) => {
-        console.log(params.row.id);
         return (
           <Fragment>
             <Button onClick={() => deleteProductHandler(params.row.id)}>
-              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-18px", marginLeft: "20px", color: "tomato" }} />
+              <DeleteIcon className="deleteIcon" color="danger" style={{ marginTop: "-16px", marginLeft: "20px", color: "rgba(0, 0, 0, 0.637)" }} />
             </Button>
             <Link className="editIcon" to={`/admin/product/${params.row.id}`}>
-              <EditIcon classname="editIcon" style={{ marginTop: "15px", color: "tomato" }} />
+              <EditIcon classname="editIcon" style={{ marginTop: "13px", color: "rgba(0, 0, 0, 0.637)" }} />
             </Link>
           </Fragment>
         );

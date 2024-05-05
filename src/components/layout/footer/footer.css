@@ -7,32 +7,33 @@ footer{
     flex-direction: column;
 }
 .left-footer img{
-        width:40vw;
-        height:40vw;
+        width:22vmax;
+        height:22vmax;
 }
 .middle-footer div{
     display:flex;
     flex-direction:row;
-    padding:1.2vw 6vw;
+    padding:.8vmax 3vmax;
 }
 .icon1{
-    font-size: 2.5vw;
+    font-size: 1.4vmax;
 }
 .middle-footer div span{
-    padding-left:2vw;
-    font-size:2.4vw;
+    padding-left:1vmax;
+    font-size:1.35vmax;
 }
 .middle-footer{
     padding:1vmax 3vmax;
     color:white;
 }
 .middle-footer h1{
-    padding-bottom:2vw;
-    font-size:3vw;
+    padding-bottom:1.1vmax;
+    font-size:2vmax;
 }
 .right-footer span{
-    padding:1.2vw 6vw;
-    font-size:2.5vw;
+    padding-left:3vmax;
+    padding-top: 1vmax;
+    font-size:1.35vmax;
     display:block;
 }
 .right-footer{
@@ -40,20 +41,21 @@ footer{
     color:white;
 }
 .right-footer h1{
-    padding-bottom:2vw;
-    font-size:3vw;
+    padding-bottom:1.1vmax;
+    font-size:2vmax;
 }
 .most-right-footer p{
     padding:1.2vw 0 1.2vw 6vw;
-    font-size:2.5vw;
+    font-size:1.4vmax;
+    line-height: 1.4;
 }
 .most-right-footer{
     padding:1vmax 3vmax;
     color:white;
 }
 .most-right-footer h1{
-    padding-bottom:2vw;
-    font-size:3vw;
+    padding-bottom:1.1vmax;
+    font-size:2vmax;
 }
 .icons{
     color:white;
@@ -66,18 +68,18 @@ footer{
 .icons span{
     border:1px solid white;
     border-radius: 100%;
-    width:3vw;
-    height:3vw;
+    width:2vmax;
+    height:2vmax;
     padding:2vmax 2vmax;
-    margin:0 2vw;
+    margin:0 1.5vmax;
 }
 .icon{
-    font-size:4vw;
+    font-size:2vmax;
 }
 .follow-us p{
     color:white;
     text-align: center;
-    font-size:2.5vw;
+    font-size:1.5vmax;
     margin-bottom:10px;
 }
 @media screen and (min-width:1080px){

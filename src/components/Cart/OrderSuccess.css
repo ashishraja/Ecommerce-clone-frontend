@@ -27,6 +27,10 @@
   }
   
   @media screen and (max-width: 600px) {
+    .orderSuccess{
+      height:100vh;
+      padding:0 10vmax;
+    }
     .orderSuccess > a {
       padding: 3vw 6vw;
       font: 400 4vw "Roboto";
