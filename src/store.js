@@ -79,7 +79,3 @@ export default store;
 
 export const server = "http://localhost:4000/api/v1"
 
-
-//   "dependencies": {
-//     "force": "^0.0.3",,
-//     "redux-devtools-extension": "^2.13.9",

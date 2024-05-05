@@ -15,8 +15,6 @@ const Payment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const payBtn = useRef(null);
-  // const server1 = "https://ecommerce-backend-2uu7.onrender.com"
-  const server1 = "https://localhost:4000"
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.newOrder);
@@ -34,7 +32,7 @@ const Payment = () => {
 
     const totalPrice = orderInfo && orderInfo.totalPrice;
     try {
-      const { data: { key } } = await axios.get(`${server1}/api/getkey`, {
+      const { data: { key } } = await axios.get(`${server}/getkey`, {
         withCredentials: true,
       });
 
