@@ -132,7 +132,7 @@ function ChangePhotoBox({ isOpen, onClose, changeImageSubmitHandler, loading }) 
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={closeHandler}>
+    <Modal isOpen={isOpen} onClose={closeHandler} className="main-modal">
       <ModalOverlay backdropFilter={'blur(100px)'} />
       <ModalContent className="modelContent">
         <div>
@@ -146,10 +146,12 @@ function ChangePhotoBox({ isOpen, onClose, changeImageSubmitHandler, loading }) 
                 {imagePrev && <img src={imagePrev} alt="user-avatar"/>}
                 <Input
                   required
+                  accept="image/*"
                   type={'file'}
                   onChange={changeImage}
                   w={['60vw', '20vw']}
                   className="modalInput"
+                  style={{zIndex:"1"}}
                 />
                 <Button
                   className="changeButton"

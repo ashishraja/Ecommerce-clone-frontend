@@ -1,8 +1,6 @@
-.PageNotFound {
-    margin: auto;
+.PageNotFound {    
     text-align: center;
-    padding: 10vmax;
-    height: 50vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +25,9 @@
   }
   
   @media screen and (max-width: 1080px) {
+    .PageNotFound {    
+      height: 100vh;
+    }
     .PageNotFound > a {
       padding: 3vw 6vw;
       font: 400 4vw "Roboto";

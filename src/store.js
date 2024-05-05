@@ -77,7 +77,7 @@ const store = configureStore({
 export default store;
 
 
-export const server = "https://ecommerce-backend-2uu7.onrender.com/api/v1"
+export const server = "http://localhost:4000/api/v1"
 
 
 //   "dependencies": {

@@ -132,7 +132,7 @@
     color: white;
     font: 300 0.9vmax "Roboto";
     width: 100%;
-    padding: 0.8vmax;
+    padding: 1.2vmax;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 4px;
@@ -163,11 +163,11 @@
   @media screen and (max-width: 1080px) {
     .LoginSignUpContainer {
       background-color: white;
-      margin:100px 0;
+      padding-top:70px;
     }
     .LoginSignUpBox {
-      width: 100vw;
-      height: 95vh;
+      width: 100%;
+      height: 100vh;
     }
     .login_signUp_toggle {
       height: 5vmax;

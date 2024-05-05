@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid , GridToolbar } from "@mui/x-data-grid";
 import "./ProductList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -135,6 +135,9 @@ const UsersList = () => {
                             pageSize: 5,
                           },
                         },
+                      }}
+                      slots={{
+                        toolbar: GridToolbar,
                       }}
                       pageSizeOptions={[5]}
                       disableRowSelectionOnClick

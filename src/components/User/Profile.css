@@ -9,6 +9,11 @@
   background-color: white;
 }
 
+.modalFooter{
+  background-color: white;
+}
+
+
 .profileContainer>div {
   display: flex;
   height: 100vh;

@@ -1,18 +1,26 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import React , {Fragment} from 'react'
-
+import React , {Fragment, useEffect} from 'react'
 
 const ProtectedRoute =  ({ isAdmin, element: Element, ...routeProps }) => {
   const { loading, isAuthenticated, user } =  useSelector((state) => state.user);
   
-  if (!loading && isAuthenticated === false) {
-    return <Navigate to="/login" />;
+  const userDetails = async() => {
+    if(user){
+      if (!loading && isAuthenticated === false) {
+        return <Navigate to="/login" />;
+      }
+      
+      if (!loading && isAdmin === true && user?.role !== "admin") {
+        return <Navigate to="/login" />;
+      }
+    
+    }
   }
 
-  if (!loading && isAdmin === true && user?.role !== "admin") {
-    return <Navigate to="/login" />;
-  }
+  useEffect(()=>{
+    userDetails();
+  })
 
   return (
     <Fragment>

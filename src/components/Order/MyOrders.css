@@ -66,10 +66,12 @@
   @media screen and (max-width: 1080px) {
     .myOrdersPage {
       padding: 0;
-      margin-top:18vw;
-      height: 84vh;
+      /* margin-top:18vw; */
+      height: 100vh;
     }
-  
+    .myOrdersPage .MuiDataGrid-root{
+      padding-top:18vw;
+    }
     #myOrdersHeading {
       font: 400 2.2vmax "Roboto";
       padding: 4vw;

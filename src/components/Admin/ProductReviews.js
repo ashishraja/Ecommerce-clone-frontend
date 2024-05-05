@@ -152,13 +152,14 @@ const ProductReviews = () => {
                   />
                 </div>
 
-                <Button
+                <button
                   id="createProductBtn"
+                  className="createProductBtn"
                   type="submit"
                   disabled={loading || productId === ""}
                 >
                   Search
-                </Button>
+                </button>
               </form>
 
               {showReviews && reviews && reviews.length > 0 ? (

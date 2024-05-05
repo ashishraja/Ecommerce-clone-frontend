@@ -58,7 +58,7 @@ const UpdatePassword = () => {
           <MetaData title="Change Password" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
-              <h2 className="updatePasswordHeading">Update Profile</h2>
+              <h2 className="updatePasswordHeading">Update Password</h2>
 
               <form
                 className="updatePasswordForm"
