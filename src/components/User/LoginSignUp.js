@@ -74,8 +74,16 @@ const LoginSignUp = () => {
     myForm.append("email", email);
     myForm.append("password", password);
     myForm.append("file", image);
-    await dispatch(register(myForm));
-    toast.success("Thank you for registering!",toastDisplay)
+    const response = await dispatch(register(myForm));
+    if (response) {
+      if (response.type === "REGISTER_USER_FAIL") {
+        toast.error(response.payload , toastDisplay);
+        response.payload = " ";
+      }
+      if (response.type === "REGISTER_USER_SUCCESS") {
+        toast.success("Thank you for registering!",toastDisplay)
+      }
+    }
   };
 
   const registerDataChange = (e) => {
@@ -205,6 +213,7 @@ const LoginSignUp = () => {
                 <div id="registerImage">
                   <img src={imagePrev} alt="Avatar Preview" />
                   <input
+                    required
                     type="file"
                     name="avatar"
                     accept="image/*"
